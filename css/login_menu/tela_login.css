@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 15%;
+    background-color: #432534;
+}
+.login-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: #efd6ac;
+    padding: 4rem;
+    border-radius: 10px;
+}
+
+.login-menu__form {
+    
+}
+
+.login-menu__label {
+    border-radius: 3px;
+    font-family: 'Outfit';
+    color:  #04151f;
+}
+
+.login-menu__input {
+    display:flex;
+    margin-bottom: 0.5rem;
+}
+
+.login-menu__botao {
+    background-color: #c44900;
+    width: 100%;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+}
+.login-menu__botao:hover {
+    cursor: pointer;
+}
