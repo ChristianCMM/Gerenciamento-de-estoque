@@ -1,21 +1,32 @@
 body {
-    display: flex;
-    justify-content: center;
-    padding-top: 15%;
     background-color: #432534;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.titulo {
+    color: white;
+    text-align: center;
+    font-family: 'Outfit';
+    font-size: 2rem;
+}
+
 .login-menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
     background-color: #efd6ac;
-    padding: 4rem;
     border-radius: 10px;
-}
-
-.login-menu__form {
-    
+    padding: 4rem;
 }
 
 .login-menu__label {
@@ -30,7 +41,7 @@ body {
 }
 
 .login-menu__botao {
-    background-color: #c44900;
+    background-color: #dd5100;
     width: 100%;
     text-align: center;
     border-radius: 3px;
@@ -38,4 +49,5 @@ body {
 }
 .login-menu__botao:hover {
     cursor: pointer;
+    background-color: #913500;
 }
