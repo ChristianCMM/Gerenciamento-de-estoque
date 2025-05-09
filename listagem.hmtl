@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de Componentes</title>
+    <link rel="stylesheet" href="cssCadastro.css">
+    <style>
+        .component-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .component-table th,
+        .component-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .component-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .component-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Componentes</h1>
+        <table class="component-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Código</th>
+                    <th>Quantidade</th>
+                    <th>Unidade</th>
+                    <th>Preço Venda</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Componente Exemplo 1</td>
+                    <td>COD001</td>
+                    <td>10</td>
+                    <td>Un</td>
+                    <td>R$ 25.00</td>
+                    <td><a href="edicao.html">Editar</a> | <a href="#">Excluir</a></td>
+                </tr>
+                <tr>
+                    <td>Outro Componente</td>
+                    <td>COD002</td>
+                    <td>5</td>
+                    <td>Kg</td>
+                    <td>R$ 50.00</td>
+                    <td><a href="edicao.html">Editar</a> | <a href="#">Excluir</a></td>
+                </tr>
+                </tbody>
+        </table>
+        <div class="navigation">
+            <a href="cadastro.html">Cadastrar Novo Componente</a>
+        </div>
+    </div>
+</body>
+</html>
