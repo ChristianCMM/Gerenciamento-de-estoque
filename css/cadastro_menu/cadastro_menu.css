@@ -1,0 +1,47 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #432534;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.titulo { 
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Outfit';
+    border-bottom: solid 2px;
+}
+
+.container {
+    background-color: #efd6ac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    font-family: 'Outfit';
+    color:  #000000;
+    margin-top: 1rem;
+}
+
+.cadastro-usuario__enviar {
+    display: block;
+    margin: 1rem 0;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    background-color: #e95601;
+    color: #000000;
+}
+
+.cadastro-usuario__enviar:hover {
+    background-color: #7c2e00;
+    cursor: pointer;
+}
