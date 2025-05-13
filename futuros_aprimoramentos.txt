@@ -1,0 +1,10 @@
+Novas adições que quero colocar no sistema de gerenciamento de estoque:
+
+1- Direcionar a tela de login para uma url (Atualmente: http://localhost:3000/listagem), com um ID relacionado ao usuário que fez o login (Ex: Atualmente: http://localhost:3000/listagem/christian)
+    -OBS: não sei se é a melhor forma de fazer este tipo de processo
+        - Pesquisar furamente.
+2- Filtro de busca de item para verificar e monitorar o estoque dele
+3- Cria uma dashboard com a quantidade de itens cadastrados, quantidade de adições (com cor verde), quantidade de remoções (com cor vermelho), quantidade de edições (com cor amarela)
+4- Vincular a tela de cadastro de usuários ao banco de dados para criar, editar, realizar acesso, editar, em referencia ao usuário
+5- Criar uma tabela no db com os registros de novos cadastros, edições e exclusões sobre cada item cadastrado com o usuário referente que fez a ação.
+OBS: passar para o papel todas as ideias a cima 
