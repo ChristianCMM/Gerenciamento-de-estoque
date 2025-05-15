@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edição e Exclusão de Componentes</title>
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/edicao_exclusao/tela_edicao_exclusao.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Edição e Exclusão de Componentes</h1>
+            <div class="component-list">
+                <div class="component-item">
+                    <span>Nome do Componente 1</span>
+                    <div class="component-actions">
+                        <button class="edit-button" onclick="editarComponente(1)">Editar</button>
+                        <button class="delete-button" onclick="excluirComponente(1)">Excluir</button>
+                    </div>
+                </div>
+                <div class="component-item">
+                    <span>Outro Componente</span>
+                    <div class="component-actions">
+                        <button class="edit-button" onclick="editarComponente(2)">Editar</button>
+                        <button class="delete-button" onclick="excluirComponente(2)">Excluir</button>
+                    </div>
+                </div>
+                </div>
+            <div class="navigation">
+                <a href="http://localhost:3000/cadastroDeComponente">Cadastrar Novo Componente</a>
+            </div>
+        </div>
+        <script src="/Js/editarExcluirElemento.js"></script>
+    </body>
+</html>

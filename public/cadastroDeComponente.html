@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Componente</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="#">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Componente</h1>
+        <form action="http://localhost:3000/enviar" id="cadastro-form" method="POST">
+            <div class="form-group">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required placeholder="código">
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo" required placeholder="tipo do item">
+            </div>
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" required placeholder="modelo">
+            </div>
+            <div class="form-group">
+                <label for="fornecedor">Fornecedor:</label>
+                <input type="text" id="fornecedor" name="fornecedor" required placeholder="fornecedor">
+            </div>
+            <div class="form-group">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" min="0" value="0" required>
+            </div>
+            <div class="form-group">
+                <label for="preco_venda">Preço de Venda:</label>
+                <input type="number" id="preco_venda" name="preco_venda" required placeholder="valor">
+            </div>
+            <div class="form-group">
+                <label for="nf">Nota Fiscal:</label>
+                <input type="number" id="nf" name="nf" min="0" value="0" required placeholder="número da nota">
+            </div>
+            <div class="form-group">
+                <label for="dataAquisicao">Data de aquisição:</label>
+                <input type="date" id="dataAquisicao" name="dataAquisicao" required>
+            </div>
+            <button type="submit">Salvar Componente</button>
+        </form>
+        <div class="navigation">
+            <a href="http://localhost:3000/listagem">Visualizar Componentes</a>
+        </div>
+    </div>
+</body>
+</html>
