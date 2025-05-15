@@ -24,9 +24,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
-                    
+
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <form id="editForm">
+                            <td>
+                                <input type="text" id="editCodigo" placeholder="Codigo" required>
+                            </td>
+                            <td>
+                                <input type="text" id="editTipo" placeholder="Tipo" required>
+                            </td>
+                            <td>
+                                <input type="text" id="editModelo" placeholder="Modelo" required>
+                            </td>
+                            <td>
+                                <input type="text" id="editFornecedor" placeholder="Fornecedor" required>
+                            </td>
+                            <td>
+                                <input type="number" id="editQuantidade" placeholder="Quantidade" required min="0">
+                            </td>
+                            <td>
+                                <input type="number" id="editPreco" placeholder="Preço" required min="0" step="0.01">
+                            </td>
+                            <td>
+                                <input type="number" id="editNf" placeholder="Nota Fiscal" required min="0" step="0.01">
+                            </td>
+                            <td>
+                                <input type="date" id="editDate" placeholder="Data de aquisição" required>
+                            </td>
+                            <td>
+                                <button type="submit">Salvar Alterações</button>
+                            </td>
+                        </form>
+                    </tr>
+                </tfoot>
             </table>
             <div class="navigation">
                 <a href="http://localhost:3000/cadastroDeComponente">Cadastrar Novo Componente</a>
