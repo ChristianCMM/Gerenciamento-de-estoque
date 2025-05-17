@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     fetch('/api/estoque')
     .then((response=>response.json()))
     .then(data=>{
+        console.log('Dados recebidos:', data) // 👈 isso aqui
         const tbody = document.querySelector('#tabelaComponentes tbody')
         // cria linhas com as informações vindas do db
         data.forEach(componente =>{
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         })
         
     })
+    
     .catch(err=>console.error('Erro ao carregar dados', err))
 })
 // copia os dados do item para a parte de edição
