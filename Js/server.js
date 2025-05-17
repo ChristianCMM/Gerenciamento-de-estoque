@@ -3,6 +3,8 @@ const path = require('path')
 const db = require('./db')
 const bcrypt = require('bcrypt')
 
+const estoqueRoutes = require('./estoqueRoutes');
+
 const app = express()
 const porta = 3000
 
@@ -10,7 +12,9 @@ const porta = 3000
 app.use(express.static(path.join(__dirname,'../')))
 
 // rota que mostra as paginas com base nos parametros inseridos na URL
-app.get('/:pagina',(req,res)=>{
+app.get(
+    '/:pagina',
+    (req,res)=>{
     // coleta a o parametro da URL, definindo qual tela irá abrir
     const pagina = req.params.pagina
     res.sendFile(path.join(__dirname,'../public',`${pagina}.html`))
@@ -18,7 +22,9 @@ app.get('/:pagina',(req,res)=>{
 
 // rota que consulta o banco de dados "estoque"
 app.get('/api/estoque',(req,res)=>{
-    db.query('SELECT ID_ITEM, TIPO_ITEM, MODELO_ITEM, FORNECEDOR, QUANTIDADE_ITEM, PRECO_ITEM, NOTA_FISCAL, DATE(AQUISICAO_ITEM) AS AQUISICAO_ITEM FROM estoque', (err, results) => {
+    db.query(
+        'SELECT ID_ITEM, TIPO_ITEM, MODELO_ITEM, FORNECEDOR, QUANTIDADE_ITEM, PRECO_ITEM, NOTA_FISCAL, DATE(AQUISICAO_ITEM) AS AQUISICAO_ITEM FROM estoque', 
+        (err, results) => {
         if (err){
             console.error('Erro ao consultar o banco',err)
             return res.status(500).json({error: 'Erro no banco de dados'})
@@ -33,11 +39,6 @@ app.get('/api/estoque',(req,res)=>{
     })
 })
 
-app.get('/listagem/:id',(req,res)=>{
-    const id = req.params.id
-    // futuramente fazer uma função que verifica se o ID é valido, consultar dados, etc
-    res.sendFile(path.join(__dirname,'../public','listagem.html'))
-})
 
 //entende a pagina HTML recebida "extended: true" = recebe objetos complexos
 app.use(express.json())
@@ -67,7 +68,8 @@ app.post('/listagem', (req, res) => {
             const senhaCorreta = await bcrypt.compare(senha, usuario.SENHA_USER);
 
             if (!senhaCorreta) {
-            return res.status(401).send('Usuário e/ou senha inválidos');
+                return res.status(401).send('Usuário e/ou senha inválidos');
+
             }
 
             // Senha correta → redireciona
@@ -81,7 +83,9 @@ app.post('/listagem', (req, res) => {
 });
 
 // Cadastra os itens no banco de dados
-app.post('/enviar',(req, res)=>{
+app.post(
+    '/enviar',
+    (req, res)=>{
     const {codigo, tipo, modelo, fornecedor, quantidade, preco_venda,  nf, dataAquisicao} = req.body // desestrutura os dados dos itens enviados ao servidor
     const sql = 'INSERT into estoque (ID_ITEM, TIPO_ITEM, MODELO_ITEM, FORNECEDOR, QUANTIDADE_ITEM, PRECO_ITEM, NOTA_FISCAL, AQUISICAO_ITEM) VALUES (?, ?, ?, ?, ?, ?, ?, ?);'
     console.log(req.body)// mostra o item cadastrado no console
@@ -97,7 +101,9 @@ app.post('/enviar',(req, res)=>{
 })
 
 //cadastrar usuário no db
-app.post('/cadastrarUsuario', async (req,res)=>{
+app.post(
+    '/cadastrarUsuario', 
+    async (req,res)=>{
     const {nome,sobrenome,telefone,email,senha} = req.body
     try{
         const hash = await bcrypt.hash(senha,10)
@@ -106,6 +112,7 @@ app.post('/cadastrarUsuario', async (req,res)=>{
             if(err){
                 console.error('Erro ao cadastrar usuário:', err)
                 res.status(500).send('Erro ao cadastrar usuário')
+                setTimeout(res.redirect('/cadastrarUsuario'),5000)
             }else{
                 res.redirect('/login')
                 console.log(`Usuário ${nome} cadastrado com sucesso`)
@@ -117,6 +124,10 @@ app.post('/cadastrarUsuario', async (req,res)=>{
     }
     
 })
+
+module.exports = express
+
+app.use('/api',estoqueRoutes)
 
 // porta em que o express escuta
 app.listen(porta,()=>{
