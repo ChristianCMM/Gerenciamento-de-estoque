@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Cadastro de Componente</h1>
-        <form action="http://localhost:3000/enviar" id="cadastro-form" method="POST">
+        <form action="http://localhost:3000/api/estoque/enviar" id="cadastro-form" method="POST">
             <div class="form-group">
                 <label for="codigo">Código:</label>
                 <input type="text" id="codigo" name="codigo" required placeholder="código">
@@ -46,7 +46,7 @@
             <button type="submit">Salvar Componente</button>
         </form>
         <div class="navigation">
-            <a href="/listagem?usuario=admin">Visualizar Componentes</a>
+            <a href="/listagem">Visualizar Componentes</a>
         </div>
     </div>
     

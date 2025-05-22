@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             <td>${componente.NOTA_FISCAL}</td>
             <td>${componente.AQUISICAO_ITEM}</td>
             <td><button onclick='carregarFormulario(${JSON.stringify(componente)})'>Editar</button></td>
+            <td><button onclick='deletarComponente(${JSON.stringify(componente)})'>Excluir</button></td>
             `
             tbody.appendChild(row)
         })
@@ -70,3 +71,21 @@ document.querySelector('#editForm').addEventListener('submit',e=>{
     .catch(err=>console.error('Erro ao editar item: ',err))
 
 })
+
+function deletarComponente(componente){
+    const confirmar = confirm(`Deseja realmente excluir este item ${componente.TIPO_ITEM}?`)
+    if(!confirmar){
+        console.error('Erro', err)
+        return;
+    }
+    
+    fetch(`/api/estoque/${componente.ID_ITEM}`,{
+        method: 'DELETE'
+    })
+    .then(res => res.text())
+    .then(msg=>{
+        alert(msg)
+        location.reload()
+    })
+    .catch(err=>console.error('Erro ao excluir item.',err))
+}

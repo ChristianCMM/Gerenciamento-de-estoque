@@ -3,7 +3,7 @@ const db = require('./db')
 const router = express.Router()
 
 // Retorna todos os itens do estoque
-router.get('/estoque', (req, res) => {
+router.get('/', (req, res) => {
     db.query(
         'SELECT ID_ITEM, TIPO_ITEM, MODELO_ITEM, FORNECEDOR, QUANTIDADE_ITEM, PRECO_ITEM, NOTA_FISCAL, DATE(AQUISICAO_ITEM) AS AQUISICAO_ITEM FROM estoque',
         (err, results) => {
@@ -23,7 +23,7 @@ router.get('/estoque', (req, res) => {
 })
 
 // Atualiza item do estoque
-router.patch('/estoque/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
     const { id } = req.params
     const { tipo, modelo, fornecedor, quantidade, preco, nota_fiscal, aquisicao } = req.body
 
@@ -45,6 +45,41 @@ router.patch('/estoque/:id', (req, res) => {
         }
 
         res.send('Item atualizado com sucesso')
+    })
+})
+
+// recebe a solicitação de cadastro de item
+router.post('/enviar', (req, res) => {
+    const { codigo, tipo, modelo, fornecedor, quantidade, preco_venda, nf, dataAquisicao } = req.body
+
+    const sql = 'INSERT INTO estoque (ID_ITEM, TIPO_ITEM, MODELO_ITEM, FORNECEDOR, QUANTIDADE_ITEM, PRECO_ITEM, NOTA_FISCAL, AQUISICAO_ITEM) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+
+    db.query(sql, [codigo, tipo, modelo, fornecedor, quantidade, preco_venda, nf, dataAquisicao], (err) => {
+        if (err) {
+            console.error('Erro ao inserir no banco', err)
+            return res.status(500).send('Erro ao salvar dados')
+        }
+
+        res.send('Dados salvos com sucesso')
+    })
+})
+// recebe a solicitação de exclusão de item
+router.delete('/:id',(req,res)=>{
+    const id = req.params.id
+
+    const query = `
+    DELETE FROM ESTOQUE WHERE ID_ITEM = ?
+    `
+    
+    db.query(
+        query,
+        [id],
+        (err,result)=>{
+        if(err){
+            console.error('Erro ao excluir item: ',err)
+            return res.status(500).send('Erro ao excluir item')
+        }
+        res.send('Item excuido com sucesso!')
     })
 })
 
