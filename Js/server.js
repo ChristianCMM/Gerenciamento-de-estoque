@@ -3,6 +3,7 @@ const path = require('path')
 const db = require('./db')
 const bcrypt = require('bcrypt')
 const fs = require('fs')
+const alterarNome = require('./alterar_nome_user')
 
 const app = express()
 const porta = 3000
@@ -20,11 +21,11 @@ app.use('/api/estoque', estoqueRoutes)
 app.use(express.static(path.join(__dirname,'..'))) // Serve a raiz do projeto
 
 // Rota POST de login
-app.post('/listagem', (req, res) => {
+app.post(`/index`, (req, res) => {
     const { email, senha } = req.body
 
     db.query(
-        'SELECT * FROM USUARIOS WHERE EMAIL_USER = ?',
+        `SELECT * FROM USUARIOS WHERE EMAIL_USER = ?`,
         [email],
         async (err, result) => {
             if (err) {
@@ -46,7 +47,7 @@ app.post('/listagem', (req, res) => {
                 }
 
                 // Redireciona para a rota personalizada com o nome do usuário
-                res.redirect(`/listagem`)
+                res.redirect(`/index`)
             } catch (erroBcrypt) {
                 console.error('Erro ao comparar senha:', erroBcrypt)
                 res.status(500).send('Erro ao verificar senha')
