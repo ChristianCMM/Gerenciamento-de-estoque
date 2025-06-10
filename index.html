@@ -1,47 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>Inicio</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/tela_inicio/style.css">
-    </head>
-    <body>
-        <div class="container">
 
-            <section class="painel_user">
-                <div class="painel_user-painel">
-                    <p>Painel</p>
-                </div>
-                <div class="painel_user-fornecedor">
-                    <p>Fornecedor</p>
-                </div>
-                <div class="painel_user-relatorio">
-                    <p>Relatorio</p>
-                </div>
-                <div class="painel_user-nome-user">
-                    <img src="#" alt="">
-                    <p class="nome_user">Nome Usuário</p>
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/tela_inicio/style.css">
+    <link rel="icon" href="imagens/icone_guia.ico" type="image/png">
+
+</head>
+
+<body>
+
+    <div class="cabecalho_painel">
+        <h1>Nome da empresa</h1>
+    </div>
+
+    <div class="container">
+        <section class="painel_user">
+            <a href="#" class="painel_user-painel">Painel</a>
+
+            <a href="#" class="painel_user-fornecedor">Fornecedor</a>
+
+            <a href="#" class="painel_user-relatorio">Relatório</a>
+
+            <section class="configuracoes_user">
+                <span id="configuracoes_user-opcoes">
+                    <a href="cadastroUsuario.html" class="adicionar_conta_user" id="adicionar_conta_user">Adicionar Usuário</a>
+                    <a href="login.html" class="sair_conta_user" id="sair_conta_user">Sair</a>
+                </span>
+
+                <div class="painel_user-nome-user" id="painel_user-nome-user">
+                    <img class="icone_user" src="imagens/icone_usuario.png" alt="Usuário">
+                    <p class="nome_user" id="nome_user">Nome Usuário</p>
+                    <div onclick="girarBotao()" class="user_nome_arrow" id="user_nome_arrow"></div>
                 </div>
             </section>
-            <div class="painel_user-nome-empresa">
-                <h1>Nome da empresa</h1>
-            </div>
+            
+        </section>
+        <section class="conteudo_central">
+            <div class="conteudo_central-visualizacao">
+                <a href="/index" class="selecionar_visualizacao">Produto</a>
+                <div class="container">
+                    <div class="tabela-wrapper">
+                        <form id="editForm">
+                            <table class="component_table" id="tabelaComponentes">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Tipo</th>
+                                        <th>Modelo</th>
+                                        <th>Fornecedor</th>
+                                        <th>Quantidade</th>
+                                        <th>Preço</th>
+                                        <th>Nota Fiscal</th>
+                                        <th>Data de aquisição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-
-            <div class="conteudo_central">
-                <section>
-                    <p class="selecionar_visualizacao">produto</p>
-                    <div class="conteudo">
-
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="editCodigo" placeholder="Codigo" required>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="editTipo" placeholder="Tipo" required>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="editModelo" placeholder="Modelo" required>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="editFornecedor" placeholder="Fornecedor" required>
+                                        </td>
+                                        <td>
+                                            <input type="number" id="editQuantidade" placeholder="Quantidade" required
+                                                min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" id="editPreco" placeholder="Preço" required min="0"
+                                                step="0.01">
+                                        </td>
+                                        <td>
+                                            <input type="number" id="editNf" placeholder="Nota Fiscal" required min="0"
+                                                step="0.01">
+                                        </td>
+                                        <td>
+                                            <input type="date" id="editDate" placeholder="Data de aquisição" required>
+                                        </td>
+                                        <td>
+                                            <button class="salvar_edicao" type="submit">Salvar Alterações</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+                        <a type='button' class="cadastro_componente_button" id="cadastro_componente_button" href="cadastroDeComponente.html">
+                            <p>Cadastrar novo produto</p>
+                        </a>
                     </div>
-                </section>
+                </div>
             </div>
-            
-            
-            
-        </div>
+        </section>
+    </div>
+    <script src="Js/listagem.js"></script>
+    <script src="Js/botao_nome_user/botao_interativo.js"></script>
+</body>
 
-    </body>
 </html>

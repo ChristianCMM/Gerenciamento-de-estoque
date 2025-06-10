@@ -1,7 +1,31 @@
-.component-table {
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+.tabela-wrapper {
     width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+.component-table {
+    width: 100%; 
+    max-width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto;
+    table-layout: auto;
+    word-wrap: break-word;
 }
 
 .component-table th,
@@ -18,4 +42,21 @@
 
 .component-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+.navigation a {
+    text-decoration: none;
+    font-family: sans-serif;
+    color: white;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+    background-color: #017282;
+    text-align: center;
+    border-radius: 0px 0px 5px 5px;
 }

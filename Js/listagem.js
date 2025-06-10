@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             <td>${componente.PRECO_ITEM}</td>
             <td>${componente.NOTA_FISCAL}</td>
             <td>${componente.AQUISICAO_ITEM}</td>
-            <td><button onclick='carregarFormulario(${JSON.stringify(componente)})'>Editar</button></td>
-            <td><button onclick='deletarComponente(${JSON.stringify(componente)})'>Excluir</button></td>
+            <td><button type='button' class='editar_produto' onclick='carregarFormulario(${JSON.stringify(componente)})'>Editar</button></td>
+            <td><button type='button' class='excluir_produto' onclick='deletarComponente(${JSON.stringify(componente)})'>Excluir</button></td>
             `
             tbody.appendChild(row)
         })

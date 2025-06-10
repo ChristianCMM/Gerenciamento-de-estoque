@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/cadastro_usuario_menu/cadastro_usuario_menu.css">
+    <link rel="icon" href="imagens/icone_guia.ico" type="image/png">
 </head>
     <body>
         <h1 class="titulo">Registrar</h1>
         <div class="container">
-            <form action="http://localhost:3000/cadastrarUsuario" method="post" class="cadastro-usuario">
+            <form action="/cadastrarUsuario" method="post" class="cadastro-usuario">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" class="cadastro-usuario__nome" minlength="3" required>
                 
@@ -28,7 +29,7 @@
                 
                 <button type="submit" class="cadastro-usuario__enviar">Enviar</button>
             </form>
-            <a href="/login.html" class="voltarLogin">Já é cadastrado?</a>
+            <a href="/login" class="voltarLogin">Já é cadastrado?</a>
         </div>
         <script src="/Js/formatarTelefone.js"></script>
     </body>

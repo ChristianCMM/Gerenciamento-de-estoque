@@ -1,33 +1,264 @@
-.container {
-    display: flex;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-.painel_user {
-    border: 4px solid black;
-    height: 100vh;
+.cabecalho_painel {
     display: flex;
-    flex-direction: column;
-    width: 15rem;
-}
-
-.painel_user-relatorio,
-.painel_user-painel ,
-.painel_user-fornecedor {
+    flex-direction: row;
+    height: 10%;
+    width: 100%;
     border-bottom: 2px solid black;
-    height: 9rem;
+    border-left: 1px solid black;
+}
+
+.cabecalho_painel h1 {
+    color: white;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 600;
+    font-size: 5rem;
+    font-family: sans-serif;
+    background-color: #074d5d;
+    text-shadow: 2px 2px 2px black;
 }
 
-.painel_user-nome-user {
-    padding: 3rem;
-    margin-top: auto;
-    border-top: 2px solid black;
+.container {
+    height: 90%;
+    flex: 1;
     display: flex;
     flex-direction: row;
 }
 
-.painel_user-nome-empresa h1{
-    width: 100vh;
+.painel_user {
+    width: 20%;
+    height: 100%;
+    background-color: #397077;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.configuracoes_user a,
+.painel_user-painel,
+.nome_user,
+.painel_user-fornecedor,
+.painel_user-relatorio {
+    border-bottom: 1px solid black;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 100%;
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px 0px black;
+}
+
+.selecionar_visualizacao:hover,
+.configuracoes_user a:hover,
+.painel_user-painel:hover,
+.nome_user:hover,
+.painel_user-fornecedor:hover,
+.painel_user-relatorio:hover,
+.configuracoes_user a:hover {
+    background-color: #053742;
+    cursor: pointer;
+}
+
+.configuracoes_user {
+    margin-top: auto;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.configuracoes_user span {
+    display: flex;
+    display: none;
+    flex-direction: column;
+    transition: 5s ease;
+}
+
+.configuracoes_user a {
+    height: 50%;
+    border: none;
+    background-color: #074d5d;
+    padding: 2px;
+}
+
+
+.painel_user-nome-user {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center ;
+    align-items: center;
+    border: none;
+    border-top: 1px solid black;
+    background-color: #074d5d;
+    gap: 3px;
+}
+
+.painel_user-nome-user p {
+    background: none;
+    border: none;
+    height: 10%;
+}
+
+.user_nome_arrow {
+    cursor: pointer;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #5386E4;
+    transition: 0.4s ease;
+}
+
+
+.icone_user {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+}
+
+.conteudo_central {
+    flex: 1;
+    display: flex;
+    background-color: #f1f1f1;
+}
+
+.conteudo_central-visualizacao {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.selecionar_visualizacao {
+    width: 5vw;
+    height: 5vh;
+    display: flex;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    background-color: #017282;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    border-radius: 0px 5px 5px 5px;
+}
+
+.editar_produto,
+.excluir_produto,
+.salvar_edicao {
+    color: white;
+    padding: 5px;
+    font-family: sans-serif;
+    border: none;
+    border-radius: 5px;
+    background-color: #074d5d;
+    cursor: pointer;
+}
+
+.excluir_produto:hover,
+.editar_produto:hover,
+.salvar_edicao:hover {
+    background-color: #0b748b;
+}
+
+.tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.component_table {
+    width: 100%; 
+    max-width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto;
+    table-layout: auto;
+    word-wrap: break-word;
+}
+
+.component_table thead {
+    background-color: #a0a0a0;
+}
+
+.component_table th,
+.component_table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.component_table th {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: medium;
+    text-align: center;
+}
+
+.component_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cadastro_componente_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+    background-color: #017282;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+    cursor: pointer;
+}
+
+.cadastro_componente_button:hover {
+    background-color: #0b748b;
+}
+
+.cadastro_componente_button p {
+    font-family: sans-serif;
+    font-size: large;
+    color: white;
 }
